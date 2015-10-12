@@ -1,0 +1,178 @@
+//--------------------------------------------------------------
+// Navigation
+//--------------------------------------------------------------
+
+// Links
+
+a {
+	color: $color-link;
+
+	&:visited {
+		color: $color-link-visited;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color-link-hover;
+	}
+}
+
+// Default menu (active after a fresh WordPress install)
+
+.menu {
+	@include margin-padding-reset;
+
+	list-style: none;
+
+	li {
+		margin: 0 rem(10) 0 0;
+	}
+
+	ul {
+		@include margin-padding-reset;
+
+		list-style: none;
+	}
+
+	&.menu-horizontal {
+
+		li {
+			display: inline-block;
+		}
+	}
+
+	&.menu-vertical {
+
+		li {
+			margin: 0;
+		}
+
+		a {
+			padding: rem(10);
+			border-bottom: 1px solid $color-background-hr;
+		}
+	}
+
+	&.dropdown {
+
+		// Sub-menu
+		ul {
+			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			float: left;
+			left: -999em;
+			position: absolute;
+			top: em(24px);
+			z-index: 99999;
+
+			// Sub-sub menu
+			ul {
+				left: -999em;
+				top: 0;
+			}
+
+			// Sub-menu items
+			li {
+
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+			}
+
+			// Sub-menu links
+			a {
+				@include size(200px auto);
+			}
+
+			:hover > a,
+			.focus > a {
+			}
+
+			a:hover,
+			a.focus {
+			}
+		}
+
+		// Display sub-menu on hover
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+		}
+
+		// Menu items
+		li {
+			float: left;
+			position: relative;
+
+			&:hover > a,
+			&.focus > a {
+			}
+		}
+	}
+
+	// Menu hyperlinks
+	a {
+		display: block;
+		text-decoration: none;
+	}
+
+	// Current items
+	.current_page_item a,
+	.current-menu-item a {
+	}
+}
+
+// Main navigation (after creating a menu in the dashboard)
+.main-navigation {
+	@include size(100% auto);
+
+	clear: both;
+	display: block;
+	float: left;
+
+	// Menu area
+	ul {
+		display: none;
+
+		@include wider-than(phone-landscape) {
+			display: block;
+		}
+	}
+
+	&.toggled ul {
+		display: block;
+	}
+}
+
+// Small menu
+.menu-toggle {
+	display: block;
+
+	@include wider-than(phone-landscape) {
+		display: none;
+	}
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 rem(24) 0;
+		overflow: hidden;
+	}
+
+	& .nav-previous {
+		@include size(50% auto);
+
+		float: left;
+	}
+
+	& .nav-next {
+		@include size(50% auto);
+
+		float: right;
+		text-align: right;
+	}
+}

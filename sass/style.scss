@@ -1,0 +1,32 @@
+/*
+Theme Name: {%= prefix %}
+Theme URI: {%= homepage %}
+Author: {%= author_name %}
+Author URI: {%= author_url %}
+Description: {%= description %}
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: {%= prefix %}
+Tags: custom
+
+This theme, like WordPress, is licensed under the GPL.
+
+Based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+
+Normalizing styles have been helped along thanks to the fine work of
+Bo-Yi Wu (https://github.com/appleboy/), Nicolas Gallagher (https://github.com/necolas), and Jonathan Neal (https://github.com/jonathantneal).
+*/
+
+@import "bourbon";
+@import "utilities/variables/index";
+@import "neat";
+@import "utilities/mixins/index";
+
+@import "base/index";
+@import "structure/index";
+@import "modules/index";
+@import "plugins/index";
+@import "pagebuilder/index";
+@import "views/index";
+@import "widgets/index";
